@@ -1,14 +1,13 @@
 from langchain_core.tools import tool
 from pathlib import Path
 from langchain_core.tools import tool
-from langchain_community.document_loaders import PyPDFLoader
-
+from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
+import pandas as pd 
 
 @tool
 def file_type_detector(file_path: str) -> dict:
     """
-    Detect the uploaded file type and return the extraction tool
-    that should be used for processing it.
+    Detect the uploaded file type and return the extraction tool that should be used for processing it.
     """
 
     path = Path(file_path)
@@ -44,31 +43,6 @@ def file_type_detector(file_path: str) -> dict:
     }
 
 @tool
-def pdf_extractor(file_path: str) -> dict:
-    """
-    Extract text from a PDF document page by page.
-    """
-
-    loader = PyPDFLoader(file_path)
-    documents = loader.load()
-
-    return {
-        "file_type": "pdf",
-        "file_path": file_path,
-        "pages": [
-            {
-                "page": i + 1,
-                "content": document.page_content
-            }
-            for i, document in enumerate(documents)
-        ]
-    }
-
-from langchain_core.tools import tool
-from langchain_community.document_loaders import PyPDFLoader
-
-
-@tool
 def pdf_extractor(file_path: str) -> str:
     """Extract text from a PDF file."""
 
@@ -81,3 +55,50 @@ def pdf_extractor(file_path: str) -> str:
         text += document.page_content + "\n"
 
     return text
+
+@tool
+def excel_extractor(file_path: str) -> str:
+    """Extract data from an Excel file."""
+
+    excel_file = pd.ExcelFile(file_path)
+
+    text = ""
+
+    for sheet_name in excel_file.sheet_names:
+
+        dataframe = pd.read_excel(
+            file_path,
+            sheet_name=sheet_name
+        )
+
+        text += f"\n--- Sheet: {sheet_name} ---\n"
+
+        text += dataframe.to_string(
+            index=False
+        )
+
+        text += "\n"
+
+    return text
+
+@tool
+def docx_extractor(file_path: str) -> str:
+    """Extract text from a DOCX file."""
+
+    loader = Docx2txtLoader(file_path)
+    documents = loader.load()
+
+    text = ""
+
+    for document in documents:
+        text += document.page_content + "\n"
+
+    return text
+
+@tool
+def csv_extractor(file_path: str) -> str:
+    """Extract data from a CSV file."""
+
+    dataframe = pd.read_csv(file_path)
+
+    return dataframe.to_string(index=False)

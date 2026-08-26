@@ -1,12 +1,17 @@
-from tools import pdf_extractor
+from agents import *
 from rich import print 
-print("Starting...")
 
-result = pdf_extractor.invoke(
-    r"C:\Users\Prem\Desktop\FIN_MODEL_AI\BRSR202425.pdf"
-)
+file_path = r"C:\Users\Prem\Desktop\FIN_MODEL_AI\nasdaq-aapl-2024-10K-241416806.pdff"
 
-print("Extraction completed!")
-print("Result type:", type(result))
-print("Result length:", len(result))
-print("Result:", repr(result))
+extractor = Doc_extractor()
+
+response = extractor.invoke({
+    "messages": [
+        {
+            "role": "user",
+            "content": f"Extract financial data from this file: {file_path}"
+        }
+    ]
+})
+
+print(response["structured_response"])
