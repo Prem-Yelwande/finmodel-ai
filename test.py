@@ -1,17 +1,24 @@
-from agents import *
+from agents import Doc_extractor, Fin_analyst
 from rich import print 
+from langchain_core.globals import set_verbose, set_debug
+from rich import print
+from langgraph.graph import StateGraph
+from langgraph.constants import END
 
-file_path = r"C:\Users\Prem\Desktop\FIN_MODEL_AI\nasdaq-aapl-2024-10K-241416806.pdff"
 
-extractor = Doc_extractor()
+file_path = r"C:\Users\Prem\Desktop\FIN_MODEL_AI\nasdaq-aapl-2025-10K-251437791.pdf"
 
-response = extractor.invoke({
-    "messages": [
+def extractractor():
+    extracted_data = Doc_extractor().invoke(
         {
-            "role": "user",
-            "content": f"Extract financial data from this file: {file_path}"
+            "messages":[
+                {
+                    "role": "user",
+                    "content": f"Extract financial data from this file:{file_path}"
+                }
+            ]
         }
-    ]
-})
+    )
+    print(extracted_data)
 
-print(response["structured_response"])
+extractractor()    

@@ -6,9 +6,11 @@ from langchain_core.output_parsers import StrOutputParser
 from tools import *
 import os
 from dotenv import load_dotenv
-from prompts import Extractor_prompt
+from prompts import Extractor_prompt, Financial_prompt
 from states import *
-
+from langchain_core.globals import set_verbose, set_debug
+from langgraph.graph import StateGraph
+from langgraph.constants import END
 
 load_dotenv()
 
@@ -34,5 +36,12 @@ def Doc_extractor():
     response_format=FinancialData
 )
 
+def Fin_analyst():
+    return create_agent(
+        model = llm,
+        system_prompt = Financial_prompt(),
+        response_format = FinancialAnalysisResult
+
+    )
 
     
