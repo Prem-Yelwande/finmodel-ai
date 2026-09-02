@@ -5,6 +5,7 @@ from langgraph.graph import StateGraph
 from langgraph.constants import END
 
 
+# Quick test entrypoint for the document extractor
 file_path = r"C:\Users\Prem\Desktop\FIN_MODEL_AI\nasdaq-aapl-2025-10K-251437791.pdf"
 
 
