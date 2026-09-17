@@ -16,4 +16,4 @@ uv sync
 python main.py
 ```
 
-Updated: 2026-09-14
+Updated: 2026-09-17
