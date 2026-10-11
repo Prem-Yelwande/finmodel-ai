@@ -16,4 +16,12 @@ uv sync
 python main.py
 ```
 
-Updated: 2026-09-19
+## Project Layout
+- `agents.py` — agent definitions and orchestration
+- `states.py` — shared state models
+- `tools.py` — tools used by the agents
+- `prompts.py` — prompt templates
+
+Core logic currently lives in the agent/state/tool modules above. `main.py` is a placeholder entry point.
+
+Updated: 2026-10-11
