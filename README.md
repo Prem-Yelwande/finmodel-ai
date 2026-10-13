@@ -16,12 +16,15 @@ uv sync
 python main.py
 ```
 
+Note: `main.py` is currently a placeholder entry point. Core logic lives in the modules listed below.
+
 ## Project Layout
 - `agents.py` — agent definitions and orchestration
 - `states.py` — shared state models
 - `tools.py` — tools used by the agents
 - `prompts.py` — prompt templates
+- `pipeline.py` — (placeholder for the main processing pipeline)
 
-Core logic currently lives in the agent/state/tool modules above. `main.py` is a placeholder entry point.
+Core logic currently lives in the agent/state/tool modules above.
 
-Updated: 2026-10-11
+Updated: 2026-10-13
