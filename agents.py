@@ -29,7 +29,7 @@ llm = ChatGroq(
 
 # Secondary LLM for structured document extraction (via Mistral)
 llm1 = ChatMistralAI(
-    model = "mistral-small-latest",
+    model="mistral-small-latest",
     api_key=os.getenv("MISTRA_AI_API_KEY"),
     temperature=0
 )
@@ -37,17 +37,16 @@ llm1 = ChatMistralAI(
 def Doc_extractor():
     """Create an agent that extracts structured financial data from documents."""
     return create_agent(
-    model=llm1,
-    tools=[file_type_detector, pdf_extractor],
-    system_prompt=Extractor_prompt(),
-    response_format=FinancialData
-)
+        model=llm1,
+        tools=[file_type_detector, pdf_extractor],
+        system_prompt=Extractor_prompt(),
+        response_format=FinancialData
+    )
 
 def Fin_analyst():
     """Create an agent that produces financial analysis from extracted data."""
     return create_agent(
-        model = llm,
-        system_prompt = Financial_prompt(),
-        response_format = FinancialAnalysisResult
-
+        model=llm,
+        system_prompt=Financial_prompt(),
+        response_format=FinancialAnalysisResult
     )
