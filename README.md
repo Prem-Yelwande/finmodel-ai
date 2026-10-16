@@ -16,7 +16,7 @@ uv sync
 python main.py
 ```
 
-Note: `main.py` is currently a placeholder entry point. Core logic lives in the modules listed below.
+Note: `main.py` is currently a placeholder entry point. Core logic lives in the modules listed below. Check individual modules for the actual agent implementations before running.
 
 ## Project Layout
 - `agents.py` — agent definitions and orchestration
@@ -27,4 +27,4 @@ Note: `main.py` is currently a placeholder entry point. Core logic lives in the 
 
 Core logic currently lives in the agent/state/tool modules above.
 
-Updated: 2026-10-13
+Updated: 2026-10-16
