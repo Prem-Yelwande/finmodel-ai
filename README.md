@@ -27,4 +27,9 @@ Note: `main.py` is currently a placeholder entry point. Core logic lives in the 
 
 Core logic currently lives in the agent/state/tool modules above. The empty `pipeline.py` is reserved for the end-to-end flow that wires agents, states, and tools together.
 
-Updated: 2026-10-18
+## Next Steps
+- Implement the orchestration logic in `pipeline.py` to connect agents, states, and tools.
+- Add tests for document extraction and agent responses.
+- Extend tools for additional financial data sources if needed.
+
+Updated: 2026-10-20
