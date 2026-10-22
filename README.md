@@ -31,5 +31,6 @@ Core logic currently lives in the agent/state/tool modules above. The empty `pip
 - Implement the orchestration logic in `pipeline.py` to connect agents, states, and tools.
 - Add tests for document extraction and agent responses.
 - Extend tools for additional financial data sources if needed.
+- Consider pinning dependencies more tightly in `pyproject.toml` for reproducible builds.
 
-Updated: 2026-10-20
+Updated: 2026-10-22
