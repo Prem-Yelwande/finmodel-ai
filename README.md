@@ -27,10 +27,14 @@ Note: `main.py` is currently a placeholder entry point. Core logic lives in the 
 
 Core logic currently lives in the agent/state/tool modules above. The empty `pipeline.py` is reserved for the end-to-end flow that wires agents, states, and tools together.
 
+## Dependencies
+Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full list. Run `uv sync` to install everything in a virtual environment.
+
 ## Next Steps
 - Implement the orchestration logic in `pipeline.py` to connect agents, states, and tools.
 - Add tests for document extraction and agent responses.
 - Extend tools for additional financial data sources if needed.
 - Consider pinning dependencies more tightly in `pyproject.toml` for reproducible builds.
+- Add type hints across modules for better maintainability.
 
-Updated: 2026-10-22
+Updated: 2026-10-23
