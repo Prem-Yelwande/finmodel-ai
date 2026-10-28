@@ -20,6 +20,12 @@ from langgraph.constants import END
 
 load_dotenv()
 
+# Validate required API keys early for better error messages
+if not os.getenv("GROQ_API_KEY"):
+    raise ValueError("GROQ_API_KEY environment variable is not set. Please add it to your .env file.")
+if not os.getenv("MISTRA_AI_API_KEY"):
+    raise ValueError("MISTRA_AI_API_KEY environment variable is not set. Please add it to your .env file.")
+
 # Primary LLM for financial analysis (fast, via Groq)
 llm = ChatGroq(
     model="openai/gpt-oss-120b",
