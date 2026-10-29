@@ -2,6 +2,10 @@
 
 Uses Groq (for analysis) and Mistral (for document extraction).
 API keys are loaded from environment variables via python-dotenv.
+
+Import the factory functions Doc_extractor() and Fin_analyst() to obtain
+ready-to-use agents. Both expect the corresponding environment variables
+to be set before import.
 """
 
 from langchain.agents import create_agent
