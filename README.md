@@ -5,6 +5,8 @@ AI-powered financial modeling and analysis pipeline.
 ## Overview
 Multi-agent system for processing financial documents (e.g. 10-K filings) and generating insights.
 
+**Note:** Full agent functionality requires an API key for the underlying LLM (e.g. OpenAI). Set it via environment variables as used in the tools/agents modules.
+
 ## Features
 - Agent-based architecture
 - Document processing pipeline
@@ -37,4 +39,4 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Consider pinning dependencies more tightly in `pyproject.toml` for reproducible builds.
 - Add type hints across modules for better maintainability.
 
-Updated: 2026-10-23
+Updated: 2026-10-30
