@@ -38,5 +38,6 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Extend tools for additional financial data sources if needed.
 - Consider pinning dependencies more tightly in `pyproject.toml` for reproducible builds.
 - Add type hints across modules for better maintainability.
+- Document required environment variables (e.g. LLM API keys) in a sample `.env.example`.
 
-Updated: 2026-10-30
+Updated: 2026-10-31
