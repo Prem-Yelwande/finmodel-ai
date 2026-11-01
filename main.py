@@ -8,6 +8,9 @@ Core agent logic, state models, and tools live in:
 
 See README.md for the project overview and getting started instructions.
 The main processing pipeline is still to be implemented in pipeline.py.
+
+Usage:
+    python main.py
 """
 
 
@@ -18,7 +21,8 @@ def main() -> None:
     print("  states.py  — shared state models")
     print("  tools.py   — document extraction tools (PDF, DOCX, CSV, Excel)")
     print("  prompts.py — prompt templates")
-    print("See README.md for setup and next steps.")
+    print("  pipeline.py — (coming soon) end-to-end analysis flow")
+    print("See README.md for setup, dependencies, and next steps.")
 
 
 if __name__ == "__main__":
