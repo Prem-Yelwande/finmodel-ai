@@ -39,5 +39,6 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Consider pinning dependencies more tightly in `pyproject.toml` for reproducible builds.
 - Add type hints across modules for better maintainability.
 - Document required environment variables (e.g. LLM API keys) in a sample `.env.example`.
+- Add error handling for missing API keys or invalid documents.
 
-Updated: 2026-10-31
+Updated: 2026-11-02
