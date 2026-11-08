@@ -16,6 +16,7 @@ Next steps:
     1. Review and refine prompts in prompts.py
     2. Implement end-to-end flow in pipeline.py
     3. Add unit tests for document extraction tools
+    4. Set required LLM API keys via environment variables (see tools/agents)
 """
 
 
@@ -33,6 +34,7 @@ def main() -> None:
     print("  - Finalize extraction tools and add error handling")
     print("  - Wire agents into a LangGraph or sequential pipeline")
     print("  - Add sample input documents and expected outputs for testing")
+    print("  - Ensure LLM API keys are set in the environment before running agents")
     print("See README.md for setup, dependencies, and more details.")
 
 
