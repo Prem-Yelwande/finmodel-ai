@@ -17,6 +17,7 @@ Next steps:
     2. Implement end-to-end flow in pipeline.py
     3. Add unit tests for document extraction tools
     4. Set required LLM API keys via environment variables (see tools/agents)
+    5. Add input validation for uploaded financial documents
 """
 
 
@@ -35,6 +36,7 @@ def main() -> None:
     print("  - Wire agents into a LangGraph or sequential pipeline")
     print("  - Add sample input documents and expected outputs for testing")
     print("  - Ensure LLM API keys are set in the environment before running agents")
+    print("  - Consider adding a .env.example file documenting required keys")
     print("See README.md for setup, dependencies, and more details.")
 
 
