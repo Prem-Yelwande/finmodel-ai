@@ -13,6 +13,8 @@ Multi-agent system for processing financial documents (e.g. 10-K filings) and ge
 - State management and tools for financial analysis
 
 ## Getting Started
+Recommended: Python 3.11+
+
 ```bash
 uv sync
 # Optional: create a .env file with your LLM key, for example:
@@ -47,4 +49,4 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Document required environment variables more fully (sample `.env.example`).
 - Add robust error handling for missing API keys or invalid documents.
 
-Updated: 2026-11-10
+Updated: 2026-11-11
