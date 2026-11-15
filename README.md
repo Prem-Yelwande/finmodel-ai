@@ -39,7 +39,7 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 ## Environment Variables
 - `OPENAI_API_KEY` (or the key expected by the configured LLM provider) is required for agent calls.
 - Document paths and other settings can be passed programmatically or via the pipeline once implemented.
-- **Security:** Never commit API keys to the repository. Use a `.env` file (add it to `.gitignore`) and load via `python-dotenv` or similar.
+- **Security:** Never commit API keys to the repository. Use a `.env` file (add it to `.gitignore`) and load via `python-dotenv` or similar. Example `.env` is not included to avoid accidental key exposure.
 
 ## Next Steps
 - Implement the orchestration logic in `pipeline.py` to connect agents, states, and tools.
@@ -50,4 +50,4 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Document required environment variables more fully (sample `.env.example`).
 - Add robust error handling for missing API keys or invalid documents.
 
-Updated: 2026-11-12
+Updated: 2026-11-15
