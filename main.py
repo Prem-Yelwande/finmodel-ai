@@ -20,6 +20,9 @@ Next steps:
     5. Add input validation for uploaded financial documents
 """
 
+import sys
+from pathlib import Path
+
 
 def main() -> None:
     """Print project overview and module locations."""
@@ -31,6 +34,17 @@ def main() -> None:
     print("  prompts.py  — prompt templates")
     print("  pipeline.py — (coming soon) end-to-end analysis flow")
     print()
+
+    # Quick sanity check that expected modules are present
+    expected = ["agents.py", "states.py", "tools.py", "prompts.py"]
+    missing = [name for name in expected if not Path(name).is_file()]
+    if missing:
+        print(f"Warning: missing expected module(s): {', '.join(missing)}")
+        print("Make sure you are running from the project root.")
+    else:
+        print("All core modules are present in the current directory.")
+
+    print()
     print("Suggested next steps:")
     print("  - Finalize extraction tools and add error handling")
     print("  - Wire agents into a LangGraph or sequential pipeline")
@@ -38,6 +52,8 @@ def main() -> None:
     print("  - Ensure LLM API keys are set in the environment before running agents")
     print("  - Consider adding a .env.example file documenting required keys")
     print("See README.md for setup, dependencies, and more details.")
+    print()
+    print("Tip: create a .env file with GROQ_API_KEY and MISTRA_AI_API_KEY before importing agents.")
 
 
 if __name__ == "__main__":
