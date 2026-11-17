@@ -28,6 +28,7 @@ def main() -> None:
     """Print project overview and module locations."""
     print("finmodel-ai — AI-powered financial modeling & analysis pipeline")
     print("Placeholder entry point. Core logic lives in the agent modules.")
+    print(f"Working directory: {Path.cwd()}")
     print("  agents.py   — agent definitions and orchestration")
     print("  states.py   — shared state models")
     print("  tools.py    — document extraction tools (PDF, DOCX, CSV, Excel)")
@@ -53,7 +54,8 @@ def main() -> None:
     print("  - Consider adding a .env.example file documenting required keys")
     print("See README.md for setup, dependencies, and more details.")
     print()
-    print("Tip: create a .env file with GROQ_API_KEY and MISTRA_AI_API_KEY before importing agents.")
+    print("Tip: create a .env file with GROQ_API_KEY and MISTRAL_AI_API_KEY before importing agents.")
+    print("Tip: run this script from the repository root so relative paths resolve correctly.")
 
 
 if __name__ == "__main__":
