@@ -45,10 +45,11 @@ def file_type_detector(file_path: str) -> dict:
     }
 
     if extension not in tool_mapping:
+        supported = ", ".join(sorted(tool_mapping.keys()))
         return {
             "status": "error",
             "file_type": extension or "(none)",
-            "message": "Unsupported file type.",
+            "message": f"Unsupported file type. Supported types: {supported}.",
         }
 
     return {
