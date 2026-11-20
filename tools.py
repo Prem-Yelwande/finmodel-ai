@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Dict
 
 import pandas as pd
 from langchain_community.document_loaders import Docx2txtLoader, PyPDFLoader
@@ -11,12 +12,12 @@ def _require_existing_file(file_path: str) -> Path:
         raise ValueError("file_path must be a non-empty path")
     path = Path(file_path)
     if not path.is_file():
-        raise FileNotFoundError(f"File not found: {file_path}")
+        raise FileNotFoundError(f"File not found: {file_path}. Please check the path and try again.")
     return path
 
 
 @tool
-def file_type_detector(file_path: str) -> dict:
+def file_type_detector(file_path: str) -> Dict[str, str]:
     """
     Detect the uploaded file type and return the extraction tool that should be used for processing it.
     """
@@ -31,7 +32,7 @@ def file_type_detector(file_path: str) -> dict:
     if not path.is_file():
         return {
             "status": "error",
-            "message": "File not found.",
+            "message": f"File not found: {file_path}. Please verify the file exists and the path is correct.",
         }
 
     extension = path.suffix.lower()
