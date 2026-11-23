@@ -5,7 +5,7 @@ AI-powered financial modeling and analysis pipeline.
 ## Overview
 Multi-agent system for processing financial documents (e.g. 10-K filings) and generating insights.
 
-**Note:** Full agent functionality requires an API key for the underlying LLM (e.g. OpenAI). Set it via environment variables as used in the tools/agents modules. Without a valid key the agents will fail at runtime.
+**Note:** Full agent functionality requires API keys for the underlying LLMs. The agents use Groq (for analysis) and Mistral (for document extraction). Set `GROQ_API_KEY` and `MISTRA_AI_API_KEY` via environment variables (see agents.py). Without valid keys the agents will fail at runtime.
 
 ## Features
 - Agent-based architecture
@@ -17,8 +17,9 @@ Recommended: Python 3.11+
 
 ```bash
 uv sync
-# Optional: create a .env file with your LLM key, for example:
-# OPENAI_API_KEY=sk-...
+# Optional: create a .env file with your LLM keys, for example:
+# GROQ_API_KEY=gsk-...
+# MISTRA_AI_API_KEY=...
 python main.py
 ```
 
@@ -37,7 +38,8 @@ Core logic currently lives in the agent/state/tool modules above. The empty `pip
 Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full list. Run `uv sync` to install everything in a virtual environment.
 
 ## Environment Variables
-- `OPENAI_API_KEY` (or the key expected by the configured LLM provider) is required for agent calls.
+- `GROQ_API_KEY` is required for the financial analysis agent.
+- `MISTRA_AI_API_KEY` is required for the document extraction agent.
 - Document paths and other settings can be passed programmatically or via the pipeline once implemented.
 - **Security:** Never commit API keys to the repository. Use a `.env` file (add it to `.gitignore`) and load via `python-dotenv` or similar. Example `.env` is not included to avoid accidental key exposure.
 
@@ -50,4 +52,4 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Document required environment variables more fully (sample `.env.example`).
 - Add robust error handling for missing API keys or invalid documents.
 
-Updated: 2026-11-21
+Updated: 2026-11-23
