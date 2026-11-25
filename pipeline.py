@@ -5,6 +5,13 @@ to process financial documents end-to-end.
 
 TODO: Implement the full pipeline that chains document extraction,
 agent analysis, and insight generation.
+
+Suggested implementation outline:
+1. Validate document_path exists and is readable.
+2. Extract structured content using tools.py (PDF/DOCX/CSV/Excel).
+3. Build initial state from states.py.
+4. Invoke the agent chain defined in agents.py.
+5. Return a typed result dictionary with key insights and citations.
 """
 
 from typing import Dict, Any
@@ -22,6 +29,7 @@ def run_pipeline(document_path: str) -> Dict[str, Any]:
     Raises:
         NotImplementedError: Until the pipeline is fully implemented.
         FileNotFoundError: If the document path does not exist (future).
+        ValueError: If the document format is unsupported (future).
     """
     # Future implementation should wire together tools.py extractors,
     # states.py models, and agents.py orchestration.
