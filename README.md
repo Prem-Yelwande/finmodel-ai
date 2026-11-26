@@ -39,7 +39,7 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 
 ## Environment Variables
 - `GROQ_API_KEY` is required for the financial analysis agent.
-- `MISTRA_AI_API_KEY` is required for the document extraction agent.
+- `MISTRA_AI_API_KEY` is required for the document extraction agent. (Note: the variable name uses "MISTRA" as defined in agents.py; it is the key for the Mistral API.)
 - Document paths and other settings can be passed programmatically or via the pipeline once implemented.
 - **Security:** Never commit API keys to the repository. Use a `.env` file (add it to `.gitignore`) and load via `python-dotenv` or similar. Example `.env` is not included to avoid accidental key exposure.
 
@@ -52,4 +52,4 @@ Managed with [uv](https://docs.astral.sh/uv/). See `pyproject.toml` for the full
 - Document required environment variables more fully (sample `.env.example`).
 - Add robust error handling for missing API keys or invalid documents.
 
-Updated: 2026-11-23
+Updated: 2026-11-26
